@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+
+@theme {
+  --color-text: #ffffff;
+  --color-movieverse-red: #e50914;
+  --color-movieverse-yellow: #f5c518;
+  --text-xl: 1.25rem;
+  --text-2xl--line-height: 1.375;
+  --font-weight-semibold: 600;
+}
+
+@layer components {
+  .typography {
+    p {
+      font-size: var(--text-base);
+      color: var(--color-gray-700);
+    }
+    p {
+      font-size: var(--text-base);
+      color: var(--color-gray-700);
+    }
+    h1 {
+      font-size: var(--text-2xl--line-height);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-950);
+    }
+    h2 {
+      font-size: var(--color-text);
+      &:hover {
+        color: var(--color-movieverse-red);
+      }
+    }
+    h3 {
+      font-size: var(--text-xl);
+    }
+  }
+  .btn-primary {
+    @apply bg-movieverse-red text-white font-semibold px-8 py-4 mx-2 rounded-md shadow-md transition-colors cursor-pointer;
+  }
+  .btn-primary:hover {
+    @apply bg-movieverse-yellow text-black;
+  }
+  button{
+    @apply cursor-pointer;
+  }
+  .movie-card{
+      @apply  bg-gray-700 rounded-2xl relative transition-all relative
+  }
+  .movie-card img {
+    @apply w-full h-64 object-cover rounded-md shadow-md transition-transform;
+  }
+  .movie-card img:hover {
+    @apply scale-105 transition-transform;
+  }
+  .movieMeta span{
+    @apply py-2 px-4 border-1 rounded-3xl mx-1 font-bold inline-block text-sm
+  }
+}
+
+@layer base {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"], input[type="number"], select {
+    @apply  px-5 py-4 mx-2 rounded-md border bg-gray-700 border-0  text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-movieverse-red;
+  }
+}
+body {
+  @apply bg-black text-white;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
