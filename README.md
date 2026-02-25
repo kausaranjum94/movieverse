@@ -59,5 +59,17 @@ VITE_MOVIE_API_KEY=your_api_key_here
 
 📸 Screenshots
 
+### Home page with default listing
+
+![Home Page](screenshots/defaultMovies.png)
+
+### Movie Search with suggestions
+
+![Favorites Page](screenshots/searchMoviesWithSuggession.png)
+
+### Movie detail page
+
+![Favorites Page](screenshots/movieDetailPage.png)
+
 📜 License
 This project is licensed under the MIT License.
