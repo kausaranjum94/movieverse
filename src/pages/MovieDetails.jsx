@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShimmerMovieDetails } from "../component/ShimmerMovieDetails";
+import DefaultPostter from "../assets/Default-Poster.png";
 
 const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -47,7 +48,7 @@ const MovieDetails = () => {
     <>
       <div className="movieDeatilsWrap grid grid-cols-12 gap-4 p-4 my-5 rounded-xl shadow-md bg-gray-800 flex items-center">
         <div className="col-span-12 lg:col-span-3 md:col-span-4 sm:col-span-6 ">
-          <img src={Poster} />
+          <img src={Poster && Poster !== "N/A" ? Poster : DefaultPostter} />
         </div>
         <div className="movieDetails col-span-12 lg:col-span-9 md:col-span-8 sm:col-span-6">
           <h1 className="text-2xl font-bold mb-4">{Title}</h1>
