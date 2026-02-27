@@ -28,7 +28,7 @@ const SearchBar = ({ onSearch }) => {
       return;
     }
     try {
-      const API = `http://www.omdbapi.com/?apikey=${apiKey}&s=${text}`;
+      const API = `https://www.omdbapi.com/?apikey=${apiKey}&s=${text}`;
       const response = await fetch(API);
       if (!response) {
         throw new Error("Faild to fetch suggesstions");

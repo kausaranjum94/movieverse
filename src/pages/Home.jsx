@@ -17,7 +17,7 @@ const Home = () => {
 
   const fetchDefaultMovies = async () => {
     const response = await fetch(
-      `http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=avengers`,
+      `https://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=avengers`,
     );
     if (!response.ok) {
       throw new Error("Failed to fetch default movies");
@@ -43,7 +43,7 @@ const Home = () => {
       return;
     }
     //console.log("Searching for movies with query:", query);
-    const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}&y=${year}&type=${type}`;
+    const API = `https://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}&y=${year}&type=${type}`;
     const response = await fetch(API);
     if (!response.ok) {
       throw new Error("Failed to fetch movies");
