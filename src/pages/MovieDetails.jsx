@@ -35,23 +35,21 @@ const MovieDetails = () => {
     Awards,
     Country,
     Director,
-    Genre,
     Language,
     Plot,
     Poster,
     Released,
     Writer,
-    Year,
     imdbID,
   } = movieDetails;
 
   return (
     <>
       <div className="movieDeatilsWrap grid grid-cols-12 gap-4 p-4 my-5 rounded-xl shadow-md bg-gray-800 flex items-center">
-        <div className="col-span-3">
+        <div className="col-span-12 lg:col-span-3 md:col-span-4 sm:col-span-6 ">
           <img src={Poster} />
         </div>
-        <div className="movieDetails col-span-9">
+        <div className="movieDetails col-span-12 lg:col-span-9 md:col-span-8 sm:col-span-6">
           <h1 className="text-2xl font-bold mb-4">{Title}</h1>
           <div className="my-4 movieMeta">
             <span>{Country}</span>

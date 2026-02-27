@@ -4,8 +4,9 @@
   padding: 2rem;
   width: 100%;
 }
-/* .movies-container{
-  display: flex;
-  flex-wrap: wrap;
-} */
 
+@media (max-width: 640px) {
+  #root {
+    padding: 1rem;
+  }
+}

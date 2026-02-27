@@ -85,7 +85,7 @@ const Home = () => {
         </div>
       )}
 
-      <div className="movies-container grid grid-cols-4 gap-4">
+      <div className="movies-container grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-4">
         {movies.map((movie, index) => {
           return (
             <MovieCard

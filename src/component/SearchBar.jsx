@@ -71,30 +71,30 @@ const SearchBar = ({ onSearch }) => {
         value={query || ""}
         onChange={handleChange}
         placeholder="Search for a movie"
-        className="searchbar"
+        className="searchbar my-2"
       />
       <input
         type="number"
         value={year || ""}
         onChange={(e) => setYear(e.target.value)}
         placeholder="Year"
-        className="searchbar"
+        className="searchbar my-2"
       />
       <select
         value={type || ""}
         onChange={(e) => setType(e.target.value)}
-        className="searchbar"
+        className="searchbar my-2"
       >
         <option value="">All</option>
         <option value="movie">Movie</option>
         <option value="series">Series</option>
       </select>
-      <button className="btn-primary" onClick={handleSubmit}>
+      <button className="btn-primary my-2" onClick={handleSubmit}>
         Search
       </button>
 
       {uniqueSuggestions.length > 0 && (
-        <ul className="suggessionList bg-gray-700 w-3xl m-auto mt-3 p-5 rounded-2xl absolute z-10 left-0 right-0">
+        <ul className="suggessionList bg-gray-700 w-full lg:w-3xl md:w-2xl sm:w-full m-auto mt-3 p-5 rounded-2xl absolute z-10 left-0 right-0">
           {uniqueSuggestions.map((movie) => {
             return (
               <li
