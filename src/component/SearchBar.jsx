@@ -8,21 +8,17 @@ const SearchBar = ({ onSearch }) => {
 
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
-  useEffect(() => {
-    console.log("SearchBar component mounted");
-  }, []);
-
   const handleSubmit = (e) => {
     setSuggesstions([]);
     e.preventDefault();
-    console.log(
-      "Search submitted with query:",
-      query,
-      "year:",
-      year,
-      "type:",
-      type,
-    );
+    // console.log(
+    //   "Search submitted with query:",
+    //   query,
+    //   "year:",
+    //   year,
+    //   "type:",
+    //   type,
+    // );
     onSearch(query, year, type);
   };
 

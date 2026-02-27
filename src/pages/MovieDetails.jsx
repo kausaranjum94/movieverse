@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ShimmerMovieDetails } from "../component/ShimmerMovieDetails";
 
 const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -16,7 +17,7 @@ const MovieDetails = () => {
         throw new Error("Failed to fetch movie details");
       }
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       setMovieDetails(data);
     };
     if (id) {
@@ -25,7 +26,7 @@ const MovieDetails = () => {
   }, [id]);
 
   if (!movieDetails) {
-    return <div>Loading...</div>;
+    return <ShimmerMovieDetails />;
   }
 
   const {

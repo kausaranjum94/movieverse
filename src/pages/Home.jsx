@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import MovieCard from "../component/MovieCard";
 import SearchBar from "../component/SearchBar";
+import { ShimmerMovieGrid } from "../component/ShimmerMovieGrid";
 
 const Home = () => {
   const [movies, setMovies] = React.useState([]);
@@ -12,7 +13,7 @@ const Home = () => {
 
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
-  console.log("API Key", import.meta.env.VITE_MOVIE_API_KEY);
+  //console.log("API Key", import.meta.env.VITE_MOVIE_API_KEY);
 
   const fetchDefaultMovies = async () => {
     const response = await fetch(
@@ -33,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     localStorage.setItem("Favorites", JSON.stringify(favorites));
-    console.log("Favorites updated:", favorites);
+    //console.log("Favorites updated:", favorites);
   }, [favorites]);
 
   const searchMovies = async (query, year, type) => {
@@ -41,7 +42,7 @@ const Home = () => {
       fetchDefaultMovies();
       return;
     }
-    console.log("Searching for movies with query:", query);
+    //console.log("Searching for movies with query:", query);
     const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${query}&y=${year}&type=${type}`;
     const response = await fetch(API);
     if (!response.ok) {
@@ -61,7 +62,7 @@ const Home = () => {
     }
     setTimeout(() => {
       setMessage("");
-    }, 3000);
+    }, 2000);
     //console.log("Favorites:", favorites);
   };
 
@@ -69,14 +70,21 @@ const Home = () => {
     return <div>Loading...</div>;
   }
 
+  if (!movies || movies.length === 0) {
+    return <ShimmerMovieGrid />;
+  }
+
   return (
     <>
       <SearchBar onSearch={searchMovies} />
       {message && (
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-md shadow-md">
-          <p className="message">{message}</p>
+        <div className="fixed top-10 left-0 right-0 m-auto text-white px-4 py-2 rounded-md shadow-md z-10 flex align-center justify-center">
+          <p className="message bg-black text-white px-4 py-4 rounded-md shadow-md ">
+            {message}
+          </p>
         </div>
       )}
+
       <div className="movies-container grid grid-cols-4 gap-4">
         {movies.map((movie, index) => {
           return (
@@ -84,6 +92,7 @@ const Home = () => {
               key={`movie-${index}`}
               movie={movie}
               onAddFavorites={addFavorites}
+              favorites={favorites}
             />
           );
         })}
